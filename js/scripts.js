@@ -66,6 +66,16 @@ element.querySelector(".bi-pin").addEventListener("click", () => {
   return element;
 }
 
+function toggleFixNote(id) {
+  const notes = getNotes();
+
+  const targetNote = notes.filter((note) => note.id === id)[0];
+
+  targetNote.fixed = !targetNote.fixed;
+
+  console.log(notes);
+}
+
 // Local Storage
 function getNotes() {
   // const notes = localStorage.getItem("notes")
