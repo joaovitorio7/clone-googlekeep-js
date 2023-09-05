@@ -47,6 +47,15 @@ function createNote(id, content, fixed) {
   return element;
 }
 
+// Local Storage
+function getNotes() {
+  // const notes = localStorage.getItem("notes")
+  // const notes = JSON.parse(localStorage.getItem("notes"))
+  const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+
+  return notes;
+}
+
 function saveNotes(notes) {
   localStorage.setItem("notes", JSON.stringify(notes));
 }
