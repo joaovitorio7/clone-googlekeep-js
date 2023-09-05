@@ -94,7 +94,9 @@ function getNotes() {
   // const notes = JSON.parse(localStorage.getItem("notes"))
   const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 
-  return notes;
+  const orderedNotes = notes.sort((a, b) => a.fixed > b.fixed ? -1 : 1);
+
+  return orderedNotes;
 }
 
 function saveNotes(notes) {
