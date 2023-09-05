@@ -7,11 +7,17 @@ const addNoteBtn = document.querySelector(".add-note");
 
 // Funções
 function showNotes() {
+  cleanNotes();
+
   getNotes().forEach((note) => {
     const noteElement = createNote(note.id, note.content, note.fixed);
 
     notesContainer.appendChild(noteElement);
   });
+}
+
+function cleanNotes(){
+  notesContainer.replaceChildren([])
 }
 
 function addNote() {
@@ -78,6 +84,8 @@ function toggleFixNote(id) {
   targetNote.fixed = !targetNote.fixed;
 
   saveNotes(notes);
+
+  showNotes();
 }
 
 // Local Storage
