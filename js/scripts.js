@@ -6,6 +6,14 @@ const noteInput = document.querySelector("#note-content");
 const addNoteBtn = document.querySelector(".add-note");
 
 // Funções
+function showNotes() {
+  getNotes().forEach((note) => {
+    const noteElement = createNote(note.id, note.content, note.fixed);
+
+    notesContainer.appendChild(noteElement);
+  });
+}
+
 function addNote() {
   const notes = [];
 
@@ -62,3 +70,6 @@ function saveNotes(notes) {
 
 // Eventos
 addNoteBtn.addEventListener("click", () => addNote());
+
+// Inicialização 
+showNotes();
