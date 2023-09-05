@@ -73,7 +73,7 @@ function toggleFixNote(id) {
 
   targetNote.fixed = !targetNote.fixed;
 
-  console.log(notes);
+  saveNotes(notes);
 }
 
 // Local Storage
