@@ -85,6 +85,10 @@ element.querySelector(".bi-pin").addEventListener("click", () => {
   toggleFixNote(id);
 });
 
+element.querySelector(".bi-x-lg").addEventListener("click", () => {
+  deleteNote(id, element);
+});
+
   return element;
 }
 
@@ -98,6 +102,14 @@ function toggleFixNote(id) {
   saveNotes(notes);
 
   showNotes();
+}
+
+function deleteNote(id, element) {
+  const notes = getNotes().filter((note) => note.id !== id);
+
+  saveNotes(notes);
+
+  notesContainer.removeChild(element);
 }
 
 // Local Storage
